@@ -39,7 +39,11 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Camera" id="IRW-Op-0BB"/>
+                                    <barButtonItem title="Camera" id="IRW-Op-0BB">
+                                        <connections>
+                                            <action selector="launchCamera:" destination="BYZ-38-t0r" id="6lO-iG-im3"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="Album" id="7gZ-iI-8cb" userLabel="Album">
                                         <connections>
                                             <action selector="presentImagePicker:" destination="BYZ-38-t0r" id="IOd-4R-ILq"/>
@@ -65,6 +69,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="cameraButton" destination="IRW-Op-0BB" id="Xj8-T6-phc"/>
                         <outlet property="imageView" destination="YlH-2g-a2Y" id="S6Q-IT-QnK"/>
                     </connections>
                 </viewController>
