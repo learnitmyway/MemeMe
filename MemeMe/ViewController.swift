@@ -24,13 +24,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         self.topTextField.delegate = self
         self.bottomTextField.delegate = self
         
-        if !self.isCameraAvailable() {
-            self.cameraButton.isEnabled = false
-        }
-        
-        // http://stackoverflow.com/questions/26070242/move-view-with-keyboard-using-swift 
+        // http://stackoverflow.com/questions/26070242/move-view-with-keyboard-using-swift
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.cameraButton.isEnabled = isCameraAvailable()
+    }
+    
+    func isCameraAvailable() -> Bool {
+       return UIImagePickerController.isSourceTypeAvailable(_:UIImagePickerControllerSourceType.camera)
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,37 +85,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         }
     }
     
-    // TODO when I have actual device
+    // TODO: test when I have actual device
     @IBAction func launchCamera(_ sender: UIBarButtonItem) {
-        // check if camera is available
-        if self.isCameraAvailable() {
-            
-            // check available media types for camera - necessary?
-//            let mediaTypes = UIImagePickerController.availableMediaTypes(for:UIImagePickerControllerSourceType.camera)
-            
-            // TODO: check if mediaTypes contains kUTTypeImage necessary?
-            
-            // set media types - not necessary because default is kUTTypeImage
-            
-            // diable editing - necessary?
-//            imagePicker.allowsEditing = false
-            
-            // TODO: check if iPhone
-            
-            // present interface
-            present(imagePicker, animated: true, completion: nil)
-            
-            // TODO: if tablet
-            // TODO: see documentation
-            
-        }
-    }
-    
-    func isCameraAvailable() -> Bool {
-       return UIImagePickerController.isSourceTypeAvailable(_:UIImagePickerControllerSourceType.camera)
+        imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+        present(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func presentImagePicker(_ sender: UIBarButtonItem) {
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         self.present(imagePicker, animated: true, completion: nil)
     }
     
