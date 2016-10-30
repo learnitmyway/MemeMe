@@ -34,6 +34,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
     
     @IBAction func share(_ sender: UIBarButtonItem) {
+        let objectsToShare = [imageView.image!, topTextField.text!, bottomTextField.text!] as [Any]
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        self.present(activityVC, animated: true, completion: nil)
+        // TODO: consider iPad
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
