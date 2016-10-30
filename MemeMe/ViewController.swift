@@ -19,13 +19,18 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.imagePicker.delegate = self
         self.topTextField.delegate = self
         self.bottomTextField.delegate = self
+        
         if !self.isCameraAvailable() {
             self.cameraButton.isEnabled = false
         }
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // http://stackoverflow.com/questions/26070242/move-view-with-keyboard-using-swift 
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,21 +51,34 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         bottomTextField.text = "BOTTOM"
     }
     
-    @IBAction func presentImagePicker(_ sender: UIBarButtonItem) {
-        self.present(imagePicker, animated: true, completion: nil)
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let existingText = textField.text
+        if existingText == "TOP" || existingText == "BOTTOM" {
+            textField.text = ""
+        }
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        for (_, value) in info {
-            if (value is UIImage) {
-                imageView.image = value as? UIImage
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
             }
         }
-        dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if view.frame.origin.y != 0 {
+                self.view.frame.origin.y += keyboardSize.height
+            }
+            else {
+                
+            }
+        }
     }
     
     // TODO when I have actual device
@@ -93,15 +111,21 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
        return UIImagePickerController.isSourceTypeAvailable(_:UIImagePickerControllerSourceType.camera)
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        let existingText = textField.text
-        if existingText == "TOP" || existingText == "BOTTOM" {
-            textField.text = ""
-        }
+    @IBAction func presentImagePicker(_ sender: UIBarButtonItem) {
+        self.present(imagePicker, animated: true, completion: nil)
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return textField.resignFirstResponder()
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        for (_, value) in info {
+            if (value is UIImage) {
+                imageView.image = value as? UIImage
+            }
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
 }
