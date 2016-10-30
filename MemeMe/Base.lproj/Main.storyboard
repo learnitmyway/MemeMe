@@ -30,8 +30,16 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Title" id="GWX-Vi-piR">
-                                        <barButtonItem key="leftBarButtonItem" title="Share" id="1PD-lg-o30"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="Hl0-XL-rkY"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Share" id="1PD-lg-o30">
+                                            <connections>
+                                                <action selector="share:" destination="BYZ-38-t0r" id="m22-FF-s28"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="Hl0-XL-rkY">
+                                            <connections>
+                                                <action selector="cancel:" destination="BYZ-38-t0r" id="e78-Jg-2QF"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

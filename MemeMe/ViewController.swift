@@ -33,6 +33,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func share(_ sender: UIBarButtonItem) {
+    }
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        imageView.image = nil
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
+    }
+    
     @IBAction func presentImagePicker(_ sender: UIBarButtonItem) {
         self.present(imagePicker, animated: true, completion: nil)
     }
@@ -84,7 +93,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         let existingText = textField.text
         if existingText == "TOP" || existingText == "BOTTOM" {
             textField.text = ""
-        } 
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
