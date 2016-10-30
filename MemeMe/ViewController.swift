@@ -8,16 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     
     let imagePicker = UIImagePickerController()
-    @IBOutlet weak var cameraButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imagePicker.delegate = self
+        self.topTextField.delegate = self
+        self.bottomTextField.delegate = self
         if !self.isCameraAvailable() {
             self.cameraButton.isEnabled = false
         }
@@ -74,6 +78,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func isCameraAvailable() -> Bool {
        return UIImagePickerController.isSourceTypeAvailable(_:UIImagePickerControllerSourceType.camera)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let existingText = textField.text
+        if existingText == "TOP" || existingText == "BOTTOM" {
+            textField.text = ""
+        } 
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
     }
     
 }

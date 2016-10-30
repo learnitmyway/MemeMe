@@ -69,8 +69,10 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="bottomTextField" destination="Ep4-Wi-nd0" id="49b-vo-beZ"/>
                         <outlet property="cameraButton" destination="IRW-Op-0BB" id="Xj8-T6-phc"/>
                         <outlet property="imageView" destination="YlH-2g-a2Y" id="S6Q-IT-QnK"/>
+                        <outlet property="topTextField" destination="759-OW-qdA" id="Rc8-34-ibT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
