@@ -116,10 +116,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        for (_, value) in info {
-            if (value is UIImage) {
-                imageView.image = value as? UIImage
-            }
+        // value is optional and is conditionally downcasted
+        if let value = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imageView.image = value
         }
         dismiss(animated: true, completion: nil)
     }
