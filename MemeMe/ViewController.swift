@@ -63,13 +63,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func share(_ sender: UIBarButtonItem) {
-        let objectsToShare = [imageView.image!, topTextField.text!, bottomTextField.text!] as [Any]
-        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-        self.present(activityVC, animated: true, completion: nil)
-        // TODO: consider iPad
-    }
-    
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         imageView.image = nil
         topTextField.text = "TOP"
@@ -111,7 +104,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         return keyboardSize.cgRectValue.height
     }
 
-    // TODO: test when I have actual device
+    // TODO: test with real device
     @IBAction func launchCamera(_ sender: UIBarButtonItem) {
         imagePicker.sourceType = UIImagePickerControllerSourceType.camera
         present(imagePicker, animated: true, completion: nil)
@@ -132,6 +125,28 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func renderView() -> UIImage
+    {
+        // TODO: Hide toolbar and navbar
+        
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        // TODO:  Show toolbar and navbar
+        
+        return memedImage
+    }
+    
+    // TODO: test with real device
+    @IBAction func share(_ sender: UIBarButtonItem) {
+        let objectsToShare = [self.renderView()] as [Any]
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        self.present(activityVC, animated: true, completion: nil)
+        // TODO: consider iPad
     }
     
 }
