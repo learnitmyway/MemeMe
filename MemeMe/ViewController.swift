@@ -30,12 +30,23 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         self.cameraButton.isEnabled = isCameraAvailable()
         
+        // default text
+        let memeTextAttributes = [
+            NSStrokeColorAttributeName : UIColor.black,
+            NSForegroundColorAttributeName : UIColor.white,
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSStrokeWidthAttributeName : -3.0 // FIXME: removes font color
+            ] as [String : Any]
+
+        topTextField.defaultTextAttributes = memeTextAttributes
         topTextField.text = "TOP"
         topTextField.textAlignment = NSTextAlignment.center
         
+        bottomTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.text = "BOTTOM"
         bottomTextField.textAlignment = NSTextAlignment.center
     }

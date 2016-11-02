@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -57,13 +58,13 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="759-OW-qdA">
-                                <rect key="frame" x="168.5" y="62" width="38" height="21"/>
+                                <rect key="frame" x="16" y="62" width="343" height="21"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ep4-Wi-nd0">
-                                <rect key="frame" x="149" y="584" width="77" height="21"/>
+                                <rect key="frame" x="16" y="584" width="343" height="21"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
@@ -76,15 +77,19 @@
                             <constraint firstItem="1P3-t3-tNW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8v0-vH-TgB"/>
                             <constraint firstItem="1P3-t3-tNW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="BtL-J9-iPe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YlH-2g-a2Y" secondAttribute="bottom" id="D4h-3n-riX"/>
+                            <constraint firstItem="759-OW-qdA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="F82-ZL-FyZ"/>
+                            <constraint firstItem="759-OW-qdA" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="IuP-BO-zGK"/>
                             <constraint firstItem="759-OW-qdA" firstAttribute="top" secondItem="1P3-t3-tNW" secondAttribute="bottom" constant="18" id="K0y-nd-BTO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fkX-JS-Wnt" secondAttribute="bottom" id="NEg-lc-myo"/>
                             <constraint firstAttribute="trailing" secondItem="YlH-2g-a2Y" secondAttribute="trailing" id="Rpe-7R-KBj"/>
                             <constraint firstItem="fkX-JS-Wnt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UvU-8D-GCX"/>
                             <constraint firstItem="759-OW-qdA" firstAttribute="centerX" secondItem="YlH-2g-a2Y" secondAttribute="centerX" id="W2P-5s-gcJ"/>
+                            <constraint firstItem="Ep4-Wi-nd0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fTI-AJ-xHu"/>
                             <constraint firstAttribute="trailing" secondItem="1P3-t3-tNW" secondAttribute="trailing" id="jS0-ZQ-OXy"/>
                             <constraint firstItem="YlH-2g-a2Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ruN-59-1Wu"/>
                             <constraint firstItem="fkX-JS-Wnt" firstAttribute="top" secondItem="Ep4-Wi-nd0" secondAttribute="bottom" constant="18" id="sia-ke-mtZ"/>
                             <constraint firstItem="Ep4-Wi-nd0" firstAttribute="centerX" secondItem="YlH-2g-a2Y" secondAttribute="centerX" id="wMO-up-QIS"/>
+                            <constraint firstItem="Ep4-Wi-nd0" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="x0L-Ap-xcj"/>
                         </constraints>
                     </view>
                     <connections>
