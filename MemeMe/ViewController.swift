@@ -30,7 +30,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         self.cameraButton.isEnabled = isCameraAvailable()
+        
+        topTextField.text = "TOP"
+        topTextField.textAlignment = NSTextAlignment.center
+        
+        bottomTextField.text = "BOTTOM"
+        bottomTextField.textAlignment = NSTextAlignment.center
     }
     
     func isCameraAvailable() -> Bool {
