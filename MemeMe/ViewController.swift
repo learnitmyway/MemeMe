@@ -23,10 +23,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         self.imagePicker.delegate = self
         self.topTextField.delegate = self
         self.bottomTextField.delegate = self
-        
-        // http://stackoverflow.com/questions/26070242/move-view-with-keyboard-using-swift
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,7 +35,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
             NSStrokeColorAttributeName : UIColor.black,
             NSForegroundColorAttributeName : UIColor.white,
             NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSStrokeWidthAttributeName : -3.0 // FIXME: removes font color
+            NSStrokeWidthAttributeName : -3.0
             ] as [String : Any]
 
         topTextField.defaultTextAttributes = memeTextAttributes
@@ -49,8 +45,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         bottomTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.text = "BOTTOM"
         bottomTextField.textAlignment = NSTextAlignment.center
+        
+        self.subscribeToKeyboardNotifcations()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.unsubscribeToKeyboardNotifcations()
+    }
+
     func isCameraAvailable() -> Bool {
        return UIImagePickerController.isSourceTypeAvailable(_:UIImagePickerControllerSourceType.camera)
     }
@@ -84,25 +87,30 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         return textField.resignFirstResponder()
     }
     
+    func subscribeToKeyboardNotifcations() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func unsubscribeToKeyboardNotifcations() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
     func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height
-            }
-        }
+        self.view.frame.origin.y -= getKeyboardHeight(notification: notification)
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if view.frame.origin.y != 0 {
-                self.view.frame.origin.y += keyboardSize.height
-            }
-            else {
-                
-            }
-        }
+        self.view.frame.origin.y += getKeyboardHeight(notification: notification)
     }
     
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo!
+        let keyboardSize = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.cgRectValue.height
+    }
+
     // TODO: test when I have actual device
     @IBAction func launchCamera(_ sender: UIBarButtonItem) {
         imagePicker.sourceType = UIImagePickerControllerSourceType.camera
