@@ -13,9 +13,9 @@ class SentMemesViewController: UIViewController, UITableViewDataSource, UITableV
     let cellIdentifier = "MemeCell"
     
     let dummyData = [
-        "test",
-        "test",
-        "test"
+        "test1",
+        "test2",
+        "test3"
         ]
 
     override func viewDidLoad() {
@@ -33,10 +33,24 @@ class SentMemesViewController: UIViewController, UITableViewDataSource, UITableV
         return dummyData.count;
     }
     
+    // fill table with data
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)!
         cell.textLabel?.text = dummyData[indexPath.row]
         return cell
+    }
+    
+    // navigate to detail view upon row selection
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // instantiate view controller from storyboard
+        let memeDetailVC = storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
+        
+        // set label text
+        memeDetailVC.labelText = dummyData[indexPath.row]
+        
+        // navigate to memeDetailVC
+        navigationController!.pushViewController(memeDetailVC, animated: true)
     }
     
     /*

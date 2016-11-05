@@ -81,6 +81,36 @@
             </objects>
             <point key="canvasLocation" x="-740" y="168.6656671664168"/>
         </scene>
+        <!--Meme Detail View Controller-->
+        <scene sceneID="gTq-TD-Cko">
+            <objects>
+                <viewController storyboardIdentifier="MemeDetailViewController" id="dXR-E0-Qfs" customClass="MemeDetailViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mfb-Yp-Wb6"/>
+                        <viewControllerLayoutGuide type="bottom" id="fih-kN-ftc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="coo-oE-vfI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXj-sr-tZ1">
+                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="labelView" destination="OXj-sr-tZ1" id="5qm-nV-AbK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hbJ-2y-ZDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="78" y="352"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="VzF-j8-3FE">
             <objects>
@@ -188,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="44" y="169"/>
+            <point key="canvasLocation" x="79" y="-320"/>
         </scene>
     </scenes>
 </document>
