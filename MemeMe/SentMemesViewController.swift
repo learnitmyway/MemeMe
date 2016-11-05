@@ -8,7 +8,15 @@
 
 import UIKit
 
-class SentMemesViewController: UIViewController {
+class SentMemesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    let cellIdentifier = "MemeCell"
+    
+    let dummyData = [
+        "test",
+        "test",
+        "test"
+        ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +29,16 @@ class SentMemesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dummyData.count;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)!
+        cell.textLabel?.text = dummyData[indexPath.row]
+        return cell
+    }
+    
     /*
     // MARK: - Navigation
 
