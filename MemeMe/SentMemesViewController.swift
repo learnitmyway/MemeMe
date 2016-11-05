@@ -47,7 +47,7 @@ class SentMemesViewController: UIViewController, UITableViewDataSource, UITableV
         let memeDetailVC = storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         
         // set label text
-        memeDetailVC.labelText = dummyData[indexPath.row]
+//        memeDetailVC.labelText = dummyData[indexPath.row]
         
         // navigate to memeDetailVC
         navigationController!.pushViewController(memeDetailVC, animated: true)

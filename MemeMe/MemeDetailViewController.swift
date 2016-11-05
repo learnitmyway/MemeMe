@@ -10,13 +10,13 @@ import UIKit
 
 class MemeDetailViewController: UIViewController {
 
-    @IBOutlet weak var labelView: UILabel!
+//    @IBOutlet weak var labelView: UILabel!
     
     var labelText: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        labelView.text = labelText
+//        labelView.text = labelText
     }
 
     override func didReceiveMemoryWarning() {

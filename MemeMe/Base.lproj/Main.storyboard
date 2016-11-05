@@ -93,23 +93,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXj-sr-tZ1">
-                                <rect key="frame" x="166" y="323" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BWH-W8-f3D">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BWH-W8-f3D" firstAttribute="leading" secondItem="coo-oE-vfI" secondAttribute="leading" id="Ep3-va-F5N"/>
+                            <constraint firstAttribute="trailing" secondItem="BWH-W8-f3D" secondAttribute="trailing" id="LWt-dZ-XAw"/>
+                            <constraint firstItem="BWH-W8-f3D" firstAttribute="top" secondItem="coo-oE-vfI" secondAttribute="top" id="bxu-Pr-YF6"/>
+                            <constraint firstItem="fih-kN-ftc" firstAttribute="top" secondItem="BWH-W8-f3D" secondAttribute="bottom" id="lzF-1a-ENz"/>
+                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="labelView" destination="OXj-sr-tZ1" id="5qm-nV-AbK"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbJ-2y-ZDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="78" y="352"/>
+            <point key="canvasLocation" x="77.599999999999994" y="351.27436281859076"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VzF-j8-3FE">
@@ -200,12 +199,10 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fkX-JS-Wnt" secondAttribute="bottom" id="NEg-lc-myo"/>
                             <constraint firstAttribute="trailing" secondItem="YlH-2g-a2Y" secondAttribute="trailing" id="Rpe-7R-KBj"/>
                             <constraint firstItem="fkX-JS-Wnt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UvU-8D-GCX"/>
-                            <constraint firstItem="759-OW-qdA" firstAttribute="centerX" secondItem="YlH-2g-a2Y" secondAttribute="centerX" id="W2P-5s-gcJ"/>
                             <constraint firstItem="Ep4-Wi-nd0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fTI-AJ-xHu"/>
                             <constraint firstAttribute="trailing" secondItem="1P3-t3-tNW" secondAttribute="trailing" id="jS0-ZQ-OXy"/>
                             <constraint firstItem="YlH-2g-a2Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ruN-59-1Wu"/>
                             <constraint firstItem="fkX-JS-Wnt" firstAttribute="top" secondItem="Ep4-Wi-nd0" secondAttribute="bottom" constant="18" id="sia-ke-mtZ"/>
-                            <constraint firstItem="Ep4-Wi-nd0" firstAttribute="centerX" secondItem="YlH-2g-a2Y" secondAttribute="centerX" id="wMO-up-QIS"/>
                             <constraint firstItem="Ep4-Wi-nd0" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="x0L-Ap-xcj"/>
                         </constraints>
                     </view>
