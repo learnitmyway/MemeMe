@@ -66,10 +66,7 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        imageView.image = nil
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
-//        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -144,7 +141,7 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
             
             if completed {
                 self.save(memeImage: meme)
-//                self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
 //                let memeEditorVC = MemeEditorViewController()
 //                let memeEditorVC = self.storyboard!.instantiateViewController(withIdentifier: "MemeEditorViewController") as! MemeEditorViewController
 //                memeEditorVC.sentMemes = self.sentMemes
