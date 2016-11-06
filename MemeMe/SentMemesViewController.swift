@@ -12,6 +12,8 @@ class SentMemesViewController: UIViewController, UITableViewDataSource, UITableV
     
     let cellIdentifier = "MemeCell"
     
+    var sentMemes: Meme?
+    
     let dummyData = [
         "test1",
         "test2",

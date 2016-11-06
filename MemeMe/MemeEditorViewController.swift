@@ -17,18 +17,20 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
     
     let imagePicker = UIImagePickerController()
     
+    var sentMemes = [Meme]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.imagePicker.delegate = self
-        self.topTextField.delegate = self
-        self.bottomTextField.delegate = self
+        imagePicker.delegate = self
+        topTextField.delegate = self
+        bottomTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.cameraButton.isEnabled = isCameraAvailable()
+        cameraButton.isEnabled = isCameraAvailable()
         
         // default text
         let memeTextAttributes = [
@@ -46,12 +48,12 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
         bottomTextField.text = "BOTTOM"
         bottomTextField.textAlignment = NSTextAlignment.center
         
-        self.subscribeToKeyboardNotifcations()
+        subscribeToKeyboardNotifcations()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.unsubscribeToKeyboardNotifcations()
+        unsubscribeToKeyboardNotifcations()
     }
 
     func isCameraAvailable() -> Bool {
@@ -67,6 +69,7 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
         imageView.image = nil
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
+//        dismiss(animated: true, completion: nil)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -81,8 +84,8 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
     }
     
     func subscribeToKeyboardNotifcations() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     func unsubscribeToKeyboardNotifcations() {
@@ -91,11 +94,11 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        self.view.frame.origin.y -= getKeyboardHeight(notification: notification)
+        view.frame.origin.y -= getKeyboardHeight(notification: notification)
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y += getKeyboardHeight(notification: notification)
+        view.frame.origin.y += getKeyboardHeight(notification: notification)
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
@@ -112,7 +115,7 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
     
     @IBAction func presentImagePicker(_ sender: UIBarButtonItem) {
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        self.present(imagePicker, animated: true, completion: nil)
+        present(imagePicker, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -127,12 +130,38 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
         dismiss(animated: true, completion: nil)
     }
     
-    func renderView() -> UIImage
-    {
+    // TODO: test with real device
+    @IBAction func share(_ sender: UIBarButtonItem) {
+        
+        let meme = renderMeme()
+        let objectsToShare = [meme] as [Any]
+        
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        present(activityVC, animated: true, completion: nil)
+        activityVC.completionWithItemsHandler = {
+            
+            (activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+            
+            if completed {
+                self.save(memeImage: meme)
+//                self.dismiss(animated: true, completion: nil)
+//                let memeEditorVC = MemeEditorViewController()
+//                let memeEditorVC = self.storyboard!.instantiateViewController(withIdentifier: "MemeEditorViewController") as! MemeEditorViewController
+//                memeEditorVC.sentMemes = self.sentMemes
+
+            }
+            
+        }
+        
+        // TODO: consider iPad
+    }
+    
+    func renderMeme() -> UIImage {
+        
         // TODO: Hide toolbar and navbar
         
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
@@ -141,12 +170,9 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
         return memedImage
     }
     
-    // TODO: test with real device
-    @IBAction func share(_ sender: UIBarButtonItem) {
-        let objectsToShare = [self.renderView()] as [Any]
-        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-        self.present(activityVC, animated: true, completion: nil)
-        // TODO: consider iPad
+    func save(memeImage: UIImage) {
+        let sentMeme = Meme(textTop: topTextField.text!, textBottom: bottomTextField.text!, originalImage: imageView.image!, memeImage: memeImage)
+        sentMemes.append(sentMeme)
     }
     
 }
