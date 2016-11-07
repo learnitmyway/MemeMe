@@ -18,6 +18,7 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     let imagePicker = UIImagePickerController()
     
@@ -36,6 +37,9 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
         super.viewWillAppear(animated)
         
         cameraButton.isEnabled = isCameraAvailable()
+        if imageView.image == nil {
+            shareButton.isEnabled = false
+        }
         
         // default text
         let memeTextAttributes = [
@@ -124,6 +128,7 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
         // value is optional and is conditionally downcasted
         if let value = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.image = value
+            shareButton.isEnabled = true
         }
         dismiss(animated: true, completion: nil)
     }

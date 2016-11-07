@@ -263,6 +263,7 @@
                         <outlet property="bottomTextField" destination="Ep4-Wi-nd0" id="49b-vo-beZ"/>
                         <outlet property="cameraButton" destination="IRW-Op-0BB" id="Xj8-T6-phc"/>
                         <outlet property="imageView" destination="YlH-2g-a2Y" id="S6Q-IT-QnK"/>
+                        <outlet property="shareButton" destination="1PD-lg-o30" id="N6I-8k-XeX"/>
                         <outlet property="topTextField" destination="759-OW-qdA" id="Rc8-34-ibT"/>
                     </connections>
                 </viewController>
