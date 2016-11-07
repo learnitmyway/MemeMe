@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MemeEditorDelegate {
+    func appendMeme(meme: Meme)
+}
+
 class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
@@ -17,7 +21,8 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
     
     let imagePicker = UIImagePickerController()
     
-    var sentMemes = [Meme]()
+//    var sentMemes = [Meme]()
+    var memeEditorDelegate: MemeEditorDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -142,10 +147,6 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
             if completed {
                 self.save(memeImage: meme)
                 self.dismiss(animated: true, completion: nil)
-//                let memeEditorVC = MemeEditorViewController()
-//                let memeEditorVC = self.storyboard!.instantiateViewController(withIdentifier: "MemeEditorViewController") as! MemeEditorViewController
-//                memeEditorVC.sentMemes = self.sentMemes
-
             }
             
         }
@@ -169,7 +170,13 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
     
     func save(memeImage: UIImage) {
         let sentMeme = Meme(textTop: topTextField.text!, textBottom: bottomTextField.text!, originalImage: imageView.image!, memeImage: memeImage)
-        sentMemes.append(sentMeme)
+        if let delegate = memeEditorDelegate {
+            delegate.appendMeme(meme: sentMeme)
+        }
+//        let parentVC = self.parent
+//        if let sentMemesVC = self.parent as? SentMemesViewController  {
+//            sentMemesVC.sentMemes.append(sentMeme)
+//        }
     }
     
 }

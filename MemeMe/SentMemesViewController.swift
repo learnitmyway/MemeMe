@@ -8,14 +8,14 @@
 
 import UIKit
 
-class SentMemesViewController: UIViewController {
+class SentMemesViewController: UIViewController, MemeEditorDelegate {
     
     @IBOutlet weak var tableContainerView: UIView!
     @IBOutlet weak var collectionContainerView: UIView!
     
     let cellIdentifier = "MemeCell"
     
-    var sentMemes: Meme?
+    var sentMemes = [Meme]()
     
     let dummyData = [
         "d1",
@@ -51,6 +51,23 @@ class SentMemesViewController: UIViewController {
         
         // navigate to memeDetailVC
         navigationController!.pushViewController(memeDetailVC, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let segueId = segue.identifier else { return }
+        
+        switch segueId {
+        case "MemeEditorSegue":
+            let destVC = segue.destination as! MemeEditorViewController
+            destVC.memeEditorDelegate = self
+            break
+        default:
+            break
+        }
+    }
+    
+    func appendMeme(meme: Meme) {
+        sentMemes.append(meme)
     }
     
 }

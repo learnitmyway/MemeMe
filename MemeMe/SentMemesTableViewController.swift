@@ -17,6 +17,7 @@ class SentMemesTableViewController: SentMemesViewController, UITableViewDataSour
     // fill table with data
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)!
+        cell.imageView?.image = UIImage(named: dummyData[indexPath.row])
         cell.textLabel?.text = dummyData[indexPath.row]
         return cell
     }
