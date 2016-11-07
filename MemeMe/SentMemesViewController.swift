@@ -15,19 +15,11 @@ class SentMemesViewController: UIViewController, MemeEditorDelegate {
     
     let cellIdentifier = "MemeCell"
     
-    var sentMemes = [Meme]()
-    
-    let dummyData = [
-        "d1",
-        "d2",
-        "d3"
+//    var sentMemes = [Meme]()
+    var sentMemes = [
+        Meme(textTop: "testTOP", textBottom: "testBOTTOM", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d2")!)
     ]
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-
     @IBAction func showTableView(_ sender: UIBarButtonItem) {
         UIView.animate(withDuration: 0.5, animations: {
             self.tableContainerView.alpha = 1
@@ -47,7 +39,7 @@ class SentMemesViewController: UIViewController, MemeEditorDelegate {
         let memeDetailVC = storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         
         // set label text
-        memeDetailVC.imageName = dummyData[indexPath.row]
+        memeDetailVC.image = sentMemes[indexPath.row].memeImage
         
         // navigate to memeDetailVC
         navigationController!.pushViewController(memeDetailVC, animated: true)
