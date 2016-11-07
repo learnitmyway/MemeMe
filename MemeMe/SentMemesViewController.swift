@@ -8,30 +8,63 @@
 
 import UIKit
 
-class SentMemesViewController: UIViewController, MemeEditorDelegate {
+class SentMemesViewController: UIViewController, MemeEditorDelegate, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    @IBOutlet weak var tableContainerView: UIView!
-    @IBOutlet weak var collectionContainerView: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     let cellIdentifier = "MemeCell"
     
-//    var sentMemes = [Meme]()
-    var sentMemes = [
-        Meme(textTop: "testTOP", textBottom: "testBOTTOM", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d2")!)
-    ]
+    var sentMemes = [Meme]()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+        collectionView.reloadData()
+    }
     
     @IBAction func showTableView(_ sender: UIBarButtonItem) {
         UIView.animate(withDuration: 0.5, animations: {
-            self.tableContainerView.alpha = 1
-            self.collectionContainerView.alpha = 0
+            self.tableView.alpha = 1
+            self.collectionView.alpha = 0
         })
     }
     
     @IBAction func showGridView(_ sender: UIBarButtonItem) {
         UIView.animate(withDuration: 0.5, animations: {
-            self.tableContainerView.alpha = 0
-            self.collectionContainerView.alpha = 1
+            self.tableView.alpha = 0
+            self.collectionView.alpha = 1
         })
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sentMemes.count;
+    }
+    
+    // fill table with data
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)!
+        cell.imageView?.image = sentMemes[indexPath.row].memeImage
+        cell.textLabel?.text = sentMemes[indexPath.row].textTop + " " +  sentMemes[indexPath.row].textBottom
+        return cell
+    }
+    
+    // navigate to detail view upon row selection
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        openDetailView(indexPath: indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return sentMemes.count;
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MemeCollectionViewCell
+        cell.imageView.image = sentMemes[indexPath.row].memeImage
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        openDetailView(indexPath: indexPath)
     }
     
     func openDetailView(indexPath: IndexPath) {
