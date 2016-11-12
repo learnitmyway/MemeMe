@@ -12,13 +12,14 @@ protocol MemeEditorDelegate {
     func appendMeme(meme: Meme)
 }
 
-class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UINavigationBarDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     let imagePicker = UIImagePickerController()
     
@@ -31,6 +32,7 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
         imagePicker.delegate = self
         topTextField.delegate = self
         bottomTextField.delegate = self
+        navigationBar.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -178,10 +180,10 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
         if let delegate = memeEditorDelegate {
             delegate.appendMeme(meme: sentMeme)
         }
-//        let parentVC = self.parent
-//        if let sentMemesVC = self.parent as? SentMemesViewController  {
-//            sentMemesVC.sentMemes.append(sentMeme)
-//        }
+    }
+    
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
     }
     
 }
