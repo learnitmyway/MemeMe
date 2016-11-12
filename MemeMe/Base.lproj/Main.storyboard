@@ -271,6 +271,7 @@
                         <outlet property="imageView" destination="YlH-2g-a2Y" id="S6Q-IT-QnK"/>
                         <outlet property="navigationBar" destination="1P3-t3-tNW" id="FLF-9V-FxP"/>
                         <outlet property="shareButton" destination="1PD-lg-o30" id="N6I-8k-XeX"/>
+                        <outlet property="toolBar" destination="fkX-JS-Wnt" id="8Sv-NG-ZwE"/>
                         <outlet property="topTextField" destination="759-OW-qdA" id="Rc8-34-ibT"/>
                     </connections>
                 </viewController>
