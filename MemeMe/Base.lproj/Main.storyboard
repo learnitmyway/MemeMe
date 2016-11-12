@@ -116,7 +116,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sent Memes" id="MJI-Ap-aMV">
-                        <barButtonItem key="rightBarButtonItem" title="Editor" id="lNE-T0-xq1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lNE-T0-xq1">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" identifier="MemeEditorSegue" id="gnU-o0-jOl"/>
                             </connections>
@@ -197,7 +197,7 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fkX-JS-Wnt">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="Camera" id="IRW-Op-0BB">
+                                    <barButtonItem systemItem="camera" id="IRW-Op-0BB">
                                         <connections>
                                             <action selector="launchCamera:" destination="BYZ-38-t0r" id="6lO-iG-im3"/>
                                         </connections>
@@ -225,7 +225,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem id="GWX-Vi-piR">
-                                        <barButtonItem key="leftBarButtonItem" title="Share" id="1PD-lg-o30">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="1PD-lg-o30">
                                             <connections>
                                                 <action selector="share:" destination="BYZ-38-t0r" id="m22-FF-s28"/>
                                             </connections>
