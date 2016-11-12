@@ -204,6 +204,7 @@
 				TargetAttributes = {
 					63B067291DC4EE79003D975D = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = JSFKN9352F;
 						ProvisioningStyle = Automatic;
 					};
 					63B0673D1DC4EE79003D975D = {
@@ -427,9 +428,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JSFKN9352F;
 				INFOPLIST_FILE = MemeMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.MemeMe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DeveloperDavo.MemeMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -439,9 +441,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JSFKN9352F;
 				INFOPLIST_FILE = MemeMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.MemeMe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DeveloperDavo.MemeMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
