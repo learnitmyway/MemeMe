@@ -13,8 +13,7 @@
         <!--Sent Memes-->
         <scene sceneID="k8N-tf-BaR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0e9-Ct-rfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="EkZ-hF-gVV" customClass="SentMemesViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="EkZ-hF-gVV" customClass="SentMemesViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ivz-zA-vaG"/>
                         <viewControllerLayoutGuide type="bottom" id="29R-AM-aSy"/>
@@ -31,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I7k-iU-B2d" id="1vx-fz-HDL">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LLs-3P-F3u">
@@ -128,6 +127,7 @@
                         <outlet property="tableView" destination="9O0-FC-X2S" id="Tnn-UO-RbP"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0e9-Ct-rfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-740" y="168.6656671664168"/>
         </scene>
@@ -166,7 +166,6 @@
         <!--Navigation Controller-->
         <scene sceneID="VzF-j8-3FE">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K0F-QY-Npv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="1MJ-Do-0LX" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ctJ-WS-eNZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -176,6 +175,7 @@
                         <segue destination="EkZ-hF-gVV" kind="relationship" relationship="rootViewController" id="bUG-dt-Lzf"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K0F-QY-Npv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1632" y="169"/>
         </scene>
