@@ -202,8 +202,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YlH-2g-a2Y">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YlH-2g-a2Y">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fkX-JS-Wnt">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
@@ -255,11 +255,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="YlH-2g-a2Y" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="0xl-eZ-P4W"/>
+                            <constraint firstItem="YlH-2g-a2Y" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="64" id="0xl-eZ-P4W"/>
                             <constraint firstAttribute="trailing" secondItem="fkX-JS-Wnt" secondAttribute="trailing" id="4MY-op-KGp"/>
                             <constraint firstItem="1P3-t3-tNW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8v0-vH-TgB"/>
                             <constraint firstItem="1P3-t3-tNW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="BtL-J9-iPe"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YlH-2g-a2Y" secondAttribute="bottom" id="D4h-3n-riX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YlH-2g-a2Y" secondAttribute="bottom" constant="44" id="D4h-3n-riX"/>
                             <constraint firstItem="759-OW-qdA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="F82-ZL-FyZ"/>
                             <constraint firstItem="759-OW-qdA" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="IuP-BO-zGK"/>
                             <constraint firstItem="759-OW-qdA" firstAttribute="top" secondItem="1P3-t3-tNW" secondAttribute="bottom" constant="18" id="K0y-nd-BTO"/>
@@ -285,7 +285,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="260" y="120"/>
+            <point key="canvasLocation" x="260" y="119.1904047976012"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
