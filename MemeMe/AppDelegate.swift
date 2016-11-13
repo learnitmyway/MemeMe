@@ -14,13 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     var sentMemes = [
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
+        Meme(textTop: "Hey man, do you mind.", textBottom: "You're licking my face.", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
+        Meme(textTop: "I am so confortable right now.", textBottom: "Do you think they'll see me?", originalImage: UIImage(named: "d2")!, memeImage: UIImage(named: "d2")!),
+        Meme(textTop: "We are free", textBottom: "and we know it!", originalImage: UIImage(named: "d3")!, memeImage: UIImage(named: "d3")!),
+        Meme(textTop: "Honey, I told you", textBottom: "to jump ON 3!", originalImage: UIImage(named: "d4")!, memeImage: UIImage(named: "d4")!),
+        Meme(textTop: "I love it how everyone thinks", textBottom: "that I'm cute :).", originalImage: UIImage(named: "d5")!, memeImage: UIImage(named: "d5")!),
+        Meme(textTop: "I am so stressed these days.", textBottom: "Thanks for giving me a massage.", originalImage: UIImage(named: "d6")!, memeImage: UIImage(named: "d6")!),
+        Meme(textTop: "Shhhh", textBottom: "I'm getting ready for a butt wiggle!", originalImage: UIImage(named: "d7")!, memeImage: UIImage(named: "d7")!),
+        Meme(textTop: "Man, it's hot today.", textBottom: "Here comes the boom!", originalImage: UIImage(named: "d8")!, memeImage: UIImage(named: "d8")!),
+        Meme(textTop: "This is my water hole,", textBottom: "Buddy!", originalImage: UIImage(named: "d9")!, memeImage: UIImage(named: "d9")!),
+        Meme(textTop: "I want you to", textBottom: "nose me as hard as you can.", originalImage: UIImage(named: "d10")!, memeImage: UIImage(named: "d10")!),
         ]
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

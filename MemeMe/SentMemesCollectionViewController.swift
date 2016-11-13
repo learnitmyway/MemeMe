@@ -55,17 +55,19 @@ class SentMemesCollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDelegate
 
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-     // instantiate view controller from storyboard
-     let memeDetailVC = storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
-     
-     // set label text
-     memeDetailVC.image = sentMemes[indexPath.row].memeImage
-     
-     // navigate to memeDetailVC
-     navigationController!.pushViewController(memeDetailVC, animated: true)
-
-        return true
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        openDetailView(indexPath: indexPath)
+    }
+    
+    func openDetailView(indexPath: IndexPath) {
+        // instantiate view controller from storyboard
+        let memeDetailVC = storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
+        
+        // set label text
+        memeDetailVC.image = sentMemes[indexPath.row].memeImage
+        
+        // navigate to memeDetailVC
+        navigationController!.pushViewController(memeDetailVC, animated: true)
     }
 
 }
