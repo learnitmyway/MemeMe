@@ -110,13 +110,13 @@
 				63B0672D1DC4EE79003D975D /* AppDelegate.swift */,
 				63B0672F1DC4EE79003D975D /* MemeEditorViewController.swift */,
 				63B366FB1DD876C30063160A /* SentMemesTableViewController.swift */,
-				63B366F91DD856DE0063160A /* SentMemesCollectionViewController.swift */,
 				633B478D1DCE8C02001B5DB5 /* MemeDetailViewController.swift */,
 				63B067311DC4EE79003D975D /* Main.storyboard */,
 				63B067341DC4EE79003D975D /* Assets.xcassets */,
 				63B067361DC4EE79003D975D /* LaunchScreen.storyboard */,
 				63B067391DC4EE79003D975D /* Info.plist */,
 				63A712B91DCF393100C22AB2 /* Meme.swift */,
+				63B366F91DD856DE0063160A /* SentMemesCollectionViewController.swift */,
 				63B367051DD8A0080063160A /* SentMemesCollectionViewCell.swift */,
 			);
 			path = MemeMe;

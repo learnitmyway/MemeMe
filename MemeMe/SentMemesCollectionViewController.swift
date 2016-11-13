@@ -50,8 +50,25 @@ class SentMemesCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SentMemesCollectionViewCell
         cell.backgroundView = UIImageView(image: sentMemes[indexPath.row].originalImage)
-        cell.topTextField?.text = sentMemes[indexPath.row].textTop
-        cell.bottomTextField?.text = sentMemes[indexPath.row].textBottom
+        let topTextField = cell.topTextField
+        let bottomTextField = cell.bottomTextField
+        
+        // default text
+        let memeTextAttributes = [
+            NSStrokeColorAttributeName : UIColor.black,
+            NSForegroundColorAttributeName : UIColor.white,
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 10)!,
+            NSStrokeWidthAttributeName : -1.0
+            ] as [String : Any]
+        
+        topTextField?.defaultTextAttributes = memeTextAttributes
+        topTextField?.text = sentMemes[indexPath.row].textTop
+        topTextField?.textAlignment = NSTextAlignment.center
+        
+        bottomTextField?.defaultTextAttributes = memeTextAttributes
+        bottomTextField?.text = sentMemes[indexPath.row].textBottom
+        bottomTextField?.textAlignment = NSTextAlignment.center
+
         return cell
     }
 
