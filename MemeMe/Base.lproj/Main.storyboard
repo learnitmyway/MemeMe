@@ -20,18 +20,19 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="yeL-MF-ZyI" kind="relationship" relationship="viewControllers" id="Uam-CV-CTM"/>
+                        <segue destination="KZ1-k3-Dhd" kind="relationship" relationship="viewControllers" id="KgH-T7-Wq3"/>
+                        <segue destination="yeL-MF-ZyI" kind="relationship" relationship="viewControllers" id="1EB-PQ-9VP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tlt-CY-bfu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2684" y="167"/>
         </scene>
-        <!--Item-->
+        <!--Grid-->
         <scene sceneID="psa-9C-n6d">
             <objects>
                 <navigationController id="yeL-MF-ZyI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="c59-9C-31O"/>
+                    <tabBarItem key="tabBarItem" title="Grid" id="c59-9C-31O"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ngl-Z3-1Oq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -44,7 +45,7 @@
             </objects>
             <point key="canvasLocation" x="-1535" y="631"/>
         </scene>
-        <!--Sent Memes Collection View Controller-->
+        <!--Sent Memes-->
         <scene sceneID="NPf-Dv-dBB">
             <objects>
                 <collectionViewController id="7z3-QE-uG0" customClass="SentMemesCollectionViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,8 +80,8 @@
                             <outlet property="delegate" destination="7z3-QE-uG0" id="Du7-RT-aHf"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="dTO-kt-9M4">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="ha5-Me-zhQ">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="dTO-kt-9M4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ha5-Me-zhQ">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" identifier="MemeEditorSegue" id="mhp-bt-wSj"/>
                             </connections>
@@ -125,6 +126,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbJ-2y-ZDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1153" y="344"/>
+        </scene>
+        <!--Sent Memes-->
+        <scene sceneID="fbq-5M-CRf">
+            <objects>
+                <tableViewController id="7aQ-oa-6eN" customClass="SentMemesTableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cfD-UU-j80">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemeCell" textLabel="mnO-IV-nfS" style="IBUITableViewCellStyleDefault" id="wTa-K6-N7s">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wTa-K6-N7s" id="S4c-xn-4Y3">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mnO-IV-nfS">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7aQ-oa-6eN" id="qI8-bi-ONg"/>
+                            <outlet property="delegate" destination="7aQ-oa-6eN" id="Zgi-Ez-Rs9"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Sent Memes" id="jCE-J3-75t">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3jG-7E-Xby">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="MemeEditorSegue" id="dAN-JH-lHB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D5e-vh-WAU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-584" y="-74"/>
+        </scene>
+        <!--Table-->
+        <scene sceneID="hWR-bp-Ak8">
+            <objects>
+                <navigationController id="KZ1-k3-Dhd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Table" id="G0W-LB-aRI"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eSA-xA-CmY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="7aQ-oa-6eN" kind="relationship" relationship="rootViewController" id="ujJ-I8-hGh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wtp-Su-SE7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1535" y="-74"/>
         </scene>
         <!--Meme Editor View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -224,4 +288,7 @@
             <point key="canvasLocation" x="260" y="120"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="mhp-bt-wSj"/>
+    </inferredMetricsTieBreakers>
 </document>
