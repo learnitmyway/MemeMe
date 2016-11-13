@@ -28,9 +28,9 @@ class SentMemesCollectionViewController: UICollectionViewController {
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         // set up flow layout
-        let space: CGFloat = 1.0
-        let width = (view.frame.size.width - (2 * space)) / 3.0
-        let height = (view.frame.size.height - (2 * space)) / 6.0
+        let space: CGFloat = 0.0
+        let width = (view.frame.size.width - (2 * space)) / 2.0
+        let height = (view.frame.size.height - (2 * space)) / 5.0
         
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
