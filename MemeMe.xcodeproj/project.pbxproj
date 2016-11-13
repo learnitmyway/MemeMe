@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		633B478C1DCE47DC001B5DB5 /* SentMemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633B478B1DCE47DC001B5DB5 /* SentMemesViewController.swift */; };
 		633B478E1DCE8C02001B5DB5 /* MemeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633B478D1DCE8C02001B5DB5 /* MemeDetailViewController.swift */; };
 		63A712BA1DCF393100C22AB2 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A712B91DCF393100C22AB2 /* Meme.swift */; };
 		63A712BE1DCF88D600C22AB2 /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A712BD1DCF88D500C22AB2 /* MemeCollectionViewCell.swift */; };
@@ -40,7 +39,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		633B478B1DCE47DC001B5DB5 /* SentMemesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentMemesViewController.swift; sourceTree = "<group>"; };
 		633B478D1DCE8C02001B5DB5 /* MemeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeDetailViewController.swift; sourceTree = "<group>"; };
 		63A712B91DCF393100C22AB2 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		63A712BD1DCF88D500C22AB2 /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 			children = (
 				63B0672D1DC4EE79003D975D /* AppDelegate.swift */,
 				63B0672F1DC4EE79003D975D /* MemeEditorViewController.swift */,
-				633B478B1DCE47DC001B5DB5 /* SentMemesViewController.swift */,
 				63A712BD1DCF88D500C22AB2 /* MemeCollectionViewCell.swift */,
 				63B366FB1DD876C30063160A /* SentMemesTableViewController.swift */,
 				63B366F91DD856DE0063160A /* SentMemesCollectionViewController.swift */,
@@ -277,7 +274,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				633B478C1DCE47DC001B5DB5 /* SentMemesViewController.swift in Sources */,
 				63B366FC1DD876C30063160A /* SentMemesTableViewController.swift in Sources */,
 				63B366FA1DD856DE0063160A /* SentMemesCollectionViewController.swift in Sources */,
 				63B067301DC4EE79003D975D /* MemeEditorViewController.swift in Sources */,

@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol MemeEditorDelegate {
-    func appendMeme(meme: Meme)
-}
-
 class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UINavigationBarDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
@@ -23,9 +19,6 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
     @IBOutlet weak var toolBar: UIToolbar!
     
     let imagePicker = UIImagePickerController()
-    
-//    var sentMemes = [Meme]()
-    var memeEditorDelegate: MemeEditorDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -182,9 +175,8 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
     
     func save(memeImage: UIImage) {
         let sentMeme = Meme(textTop: topTextField.text!, textBottom: bottomTextField.text!, originalImage: imageView.image!, memeImage: memeImage)
-        if let delegate = memeEditorDelegate {
-            delegate.appendMeme(meme: sentMeme)
-        }
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.sentMemes.append(sentMeme)
     }
     
     func position(for bar: UIBarPositioning) -> UIBarPosition {

@@ -8,20 +8,14 @@
 
 import UIKit
 
-class SentMemesTableViewController: UITableViewController, MemeEditorDelegate {
+class SentMemesTableViewController: UITableViewController {
     
     // MARK: Properties
-
-    var sentMemes = [
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
-        ]
-
+    
+    var sentMemes: [Meme] {
+        return (UIApplication.shared.delegate as! AppDelegate).sentMemes
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -45,23 +39,6 @@ class SentMemesTableViewController: UITableViewController, MemeEditorDelegate {
         return cell
     }
 
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let segueId = segue.identifier else { return }
-        
-        switch segueId {
-        case "MemeEditorSegue":
-            let destVC = segue.destination as! MemeEditorViewController
-            destVC.memeEditorDelegate = self
-            break
-        default:
-            break
-        }
-    }
-    
     // MARK: - Table view delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -77,12 +54,6 @@ class SentMemesTableViewController: UITableViewController, MemeEditorDelegate {
         
         // navigate to memeDetailVC
         navigationController!.pushViewController(memeDetailVC, animated: true)
-    }
-
-    // MARK: MemeEditorDelegate
-    
-    func appendMeme(meme: Meme) {
-        sentMemes.append(meme)
     }
 
 }

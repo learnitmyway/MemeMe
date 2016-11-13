@@ -10,21 +10,15 @@ import UIKit
 
 private let reuseIdentifier = "MemeCell"
 
-class SentMemesCollectionViewController: UICollectionViewController, MemeEditorDelegate {
+class SentMemesCollectionViewController: UICollectionViewController {
     
     // MARK: Properties
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
-    var sentMemes = [
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
-        Meme(textTop: "textTop", textBottom: "textBottom", originalImage: UIImage(named: "d1")!, memeImage: UIImage(named: "d1")!),
-        ]
-
+    var sentMemes: [Meme] {
+        return (UIApplication.shared.delegate as! AppDelegate).sentMemes
+    }
+    
     // MARK: Life Cycle
 
     override func viewDidLoad() {
@@ -32,7 +26,7 @@ class SentMemesCollectionViewController: UICollectionViewController, MemeEditorD
 
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
+        
         // set up flow layout
         let space: CGFloat = 1.0
         let width = (view.frame.size.width - (2 * space)) / 3.0
@@ -45,22 +39,6 @@ class SentMemesCollectionViewController: UICollectionViewController, MemeEditorD
     
     override func viewWillAppear(_ animated: Bool) {
         self.collectionView?.reloadData()
-    }
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let segueId = segue.identifier else { return }
-        
-        switch segueId {
-        case "MemeEditorSegue":
-            let destVC = segue.destination as! MemeEditorViewController
-            destVC.memeEditorDelegate = self
-            break
-        default:
-            break
-        }
     }
 
     // MARK: UICollectionViewDataSource
@@ -88,12 +66,6 @@ class SentMemesCollectionViewController: UICollectionViewController, MemeEditorD
      navigationController!.pushViewController(memeDetailVC, animated: true)
 
         return true
-    }
-
-    // MARK: MemeEditorDelegate
-    
-    func appendMeme(meme: Meme) {
-        sentMemes.append(meme)
     }
 
 }
