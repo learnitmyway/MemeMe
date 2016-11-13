@@ -2,7 +2,7 @@
 //  SentMemesCollectionViewController.swift
 //  MemeMe
 //
-//  Created by David  on 13/11/2016.
+//  Created by David on 13/11/2016.
 //
 //
 

@@ -2,7 +2,7 @@
 //  Meme.swift
 //  MemeMe
 //
-//  Created by David  on 06/11/2016.
+//  Created by David on 06/11/2016.
 //
 //
 

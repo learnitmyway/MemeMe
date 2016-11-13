@@ -2,7 +2,7 @@
 //  MemeEditorViewController.swift
 //  MemeMe
 //
-//  Created by David  on 29/10/2016.
+//  Created by David on 29/10/2016.
 //
 //
 
