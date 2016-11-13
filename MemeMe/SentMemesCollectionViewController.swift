@@ -78,8 +78,8 @@ class SentMemesCollectionViewController: UICollectionViewController {
         // instantiate view controller from storyboard
         let memeDetailVC = storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         
-        // set label text
-        memeDetailVC.image = sentMemes[indexPath.row].memeImage
+        // set image
+        memeDetailVC.image = sentMemes[indexPath.row].originalImage
         
         // navigate to memeDetailVC
         navigationController!.pushViewController(memeDetailVC, animated: true)

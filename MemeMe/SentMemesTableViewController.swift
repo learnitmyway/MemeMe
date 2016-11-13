@@ -34,7 +34,7 @@ class SentMemesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemeCell", for: indexPath)
-        cell.imageView?.image = sentMemes[indexPath.row].memeImage
+        cell.imageView?.image = sentMemes[indexPath.row].originalImage
         cell.textLabel?.text = sentMemes[indexPath.row].textTop + " " +  sentMemes[indexPath.row].textBottom
         return cell
     }
@@ -49,8 +49,8 @@ class SentMemesTableViewController: UITableViewController {
         // instantiate view controller from storyboard
         let memeDetailVC = storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         
-        // set label text
-        memeDetailVC.image = sentMemes[indexPath.row].memeImage
+        // set image
+        memeDetailVC.image = sentMemes[indexPath.row].originalImage
         
         // navigate to memeDetailVC
         navigationController!.pushViewController(memeDetailVC, animated: true)
