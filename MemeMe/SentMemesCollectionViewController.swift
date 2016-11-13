@@ -25,7 +25,7 @@ class SentMemesCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        self.collectionView!.register(SentMemesCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         // set up flow layout
         let space: CGFloat = 0.0
@@ -48,8 +48,10 @@ class SentMemesCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        cell.backgroundView = UIImageView(image: sentMemes[indexPath.row].memeImage)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SentMemesCollectionViewCell
+        cell.backgroundView = UIImageView(image: sentMemes[indexPath.row].originalImage)
+        cell.topTextField?.text = sentMemes[indexPath.row].textTop
+        cell.bottomTextField?.text = sentMemes[indexPath.row].textBottom
         return cell
     }
 
