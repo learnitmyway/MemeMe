@@ -59,7 +59,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2rx-c0-RC9">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCell" id="2rx-c0-RC9">
                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -82,10 +82,13 @@
                     <navigationItem key="navigationItem" id="dTO-kt-9M4">
                         <barButtonItem key="rightBarButtonItem" title="Item" id="ha5-Me-zhQ">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="mhp-bt-wSj"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="MemeEditorSegue" id="mhp-bt-wSj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="flowLayout" destination="2uR-6Q-P5k" id="ngE-Vn-7d3"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8W-nG-igg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
