@@ -67,31 +67,31 @@
                                     <rect key="frame" x="0.0" y="0.0" width="324" height="322"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fDj-cv-mVc">
-                                            <rect key="frame" x="8" y="8" width="308" height="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMD-ME-tur">
+                                            <rect key="frame" x="8" y="8" width="308" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                        </textField>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TgN-g5-XAF">
-                                            <rect key="frame" x="8" y="297" width="308" height="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottom" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPo-CL-UFf">
+                                            <rect key="frame" x="8" y="293" width="308" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                        </textField>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="fDj-cv-mVc" firstAttribute="trailing" secondItem="2rx-c0-RC9" secondAttribute="trailingMargin" id="080-4X-Vzw"/>
-                                    <constraint firstItem="TgN-g5-XAF" firstAttribute="bottom" secondItem="2rx-c0-RC9" secondAttribute="bottomMargin" id="4LW-Ht-qeI"/>
-                                    <constraint firstItem="fDj-cv-mVc" firstAttribute="leading" secondItem="2rx-c0-RC9" secondAttribute="leadingMargin" id="GGH-Ld-1di"/>
-                                    <constraint firstItem="fDj-cv-mVc" firstAttribute="trailing" secondItem="TgN-g5-XAF" secondAttribute="trailing" id="VUF-Th-oiu"/>
-                                    <constraint firstItem="fDj-cv-mVc" firstAttribute="top" secondItem="2rx-c0-RC9" secondAttribute="topMargin" id="r6M-tW-ujC"/>
-                                    <constraint firstItem="fDj-cv-mVc" firstAttribute="leading" secondItem="TgN-g5-XAF" secondAttribute="leading" id="t94-XO-VMe"/>
+                                    <constraint firstItem="GPo-CL-UFf" firstAttribute="bottom" secondItem="2rx-c0-RC9" secondAttribute="bottomMargin" id="3Tq-aI-yZN"/>
+                                    <constraint firstItem="GPo-CL-UFf" firstAttribute="trailing" secondItem="2rx-c0-RC9" secondAttribute="trailingMargin" id="BIP-gh-O0T"/>
+                                    <constraint firstItem="GPo-CL-UFf" firstAttribute="leading" secondItem="2rx-c0-RC9" secondAttribute="leadingMargin" id="PQM-iS-kRC"/>
+                                    <constraint firstItem="LMD-ME-tur" firstAttribute="leading" secondItem="GPo-CL-UFf" secondAttribute="leading" id="Tsv-cZ-1wj"/>
+                                    <constraint firstItem="LMD-ME-tur" firstAttribute="top" secondItem="2rx-c0-RC9" secondAttribute="topMargin" id="ce3-f0-3Hy"/>
+                                    <constraint firstItem="LMD-ME-tur" firstAttribute="trailing" secondItem="GPo-CL-UFf" secondAttribute="trailing" id="yJM-qt-3JV"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="bottomTextField" destination="TgN-g5-XAF" id="bkn-cm-G51"/>
-                                    <outlet property="topTextField" destination="fDj-cv-mVc" id="aDl-6n-2NQ"/>
+                                    <outlet property="bottomLabel" destination="GPo-CL-UFf" id="lVn-Na-X9u"/>
+                                    <outlet property="topLabel" destination="LMD-ME-tur" id="ISR-Us-l7V"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

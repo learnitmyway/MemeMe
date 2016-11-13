@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Meme(textTop: "I am so comfy right now.", textBottom: "Do you think they'll see me?", originalImage: UIImage(named: "d2")!, memeImage: UIImage(named: "d2")!),
         Meme(textTop: "We are free", textBottom: "and we know it!", originalImage: UIImage(named: "d3")!, memeImage: UIImage(named: "d3")!),
         Meme(textTop: "Honey, I told you", textBottom: "to jump on 3!", originalImage: UIImage(named: "d4")!, memeImage: UIImage(named: "d4")!),
-        Meme(textTop: "Why is everyone scared of me?", textBottom: "I'm just looking for friends", originalImage: UIImage(named: "d5")!, memeImage: UIImage(named: "d5")!),
+        Meme(textTop: "Why is everyone scared of me?", textBottom: "I'm just looking for friends.", originalImage: UIImage(named: "d5")!, memeImage: UIImage(named: "d5")!),
         Meme(textTop: "I am so stressed these days.", textBottom: "Thanks for giving me a massage.", originalImage: UIImage(named: "d6")!, memeImage: UIImage(named: "d6")!),
         Meme(textTop: "Damn.", textBottom: "I could go for a Quinoa salad", originalImage: UIImage(named: "d7")!, memeImage: UIImage(named: "d7")!),
         Meme(textTop: "This is my water hole,", textBottom: "Buddy!", originalImage: UIImage(named: "d9")!, memeImage: UIImage(named: "d9")!),

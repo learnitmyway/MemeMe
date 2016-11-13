@@ -9,7 +9,6 @@
 import UIKit
 
 class SentMemesCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var topTextField: UITextField!
-    @IBOutlet weak var bottomTextField: UITextField!
-    
+    @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var bottomLabel: UILabel!
 }

@@ -50,24 +50,20 @@ class SentMemesCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SentMemesCollectionViewCell
         cell.backgroundView = UIImageView(image: sentMemes[indexPath.row].originalImage)
-        let topTextField = cell.topTextField
-        let bottomTextField = cell.bottomTextField
+        let topLabel = cell.topLabel
+        let bottomLabel = cell.bottomLabel
         
-        // default text
-        let memeTextAttributes = [
-            NSStrokeColorAttributeName : UIColor.black,
-            NSForegroundColorAttributeName : UIColor.white,
-            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 10)!,
-            NSStrokeWidthAttributeName : -1.0
-            ] as [String : Any]
+        topLabel?.text = sentMemes[indexPath.row].textTop.uppercased()
+        topLabel?.font = UIFont(name: "HelveticaNeue-CondensedBlack", size: 10)!
+        topLabel?.textColor = UIColor.white
+        topLabel?.adjustsFontSizeToFitWidth = true
+        topLabel?.textAlignment = NSTextAlignment.center
         
-        topTextField?.defaultTextAttributes = memeTextAttributes
-        topTextField?.text = sentMemes[indexPath.row].textTop
-        topTextField?.textAlignment = NSTextAlignment.center
-        
-        bottomTextField?.defaultTextAttributes = memeTextAttributes
-        bottomTextField?.text = sentMemes[indexPath.row].textBottom
-        bottomTextField?.textAlignment = NSTextAlignment.center
+        bottomLabel?.text = sentMemes[indexPath.row].textBottom.uppercased()
+        bottomLabel?.font = UIFont(name: "HelveticaNeue-CondensedBlack", size: 10)!
+        bottomLabel?.textColor = UIColor.white
+        bottomLabel?.adjustsFontSizeToFitWidth = true
+        bottomLabel?.textAlignment = NSTextAlignment.center
 
         return cell
     }
